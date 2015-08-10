@@ -1,8 +1,36 @@
 <html>
   <head>
-    <link rel="stylesheet" href="/vendor/ng-object.css">
+    <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/vendor/ng-object/ng-object.css">
+    <link rel="stylesheet" href="/build/app.css">
   </head>
-  <body>
-    <script src="/vendor/ng-object.css"></script>
+  <body ng-app="demo">
+    <div class="container header">
+        <div class="panel panel-default with-nav-tabs">
+          <div class="panel-heading">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#view" data-toggle="tab">View</a></li>
+              <li><a href="#debug" data-toggle="tab">Debug</a></li>
+            </ul>
+          </div>
+          <div class="panel-body">
+            <div class="tab-content" ng-controller="DemoCtrl as democtrl">
+              <div class="tab-pane fade in active" id="view">
+                <div class="form-horizontal">
+                  <ng-object model="democtrl.example"></ng-object>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="debug">
+                <pre ng-bind="democtrl.example | json:2"></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <script src="/vendor/jquery/dist/jquery.js"></script>
+    <script src="/vendor/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/vendor/angular/angular.js"></script>
+    <script src="/vendor/ng-object/ng-object.js"></script>
+    <script src="/build/app.js"></script>
   </body>
 </html>

@@ -4,8 +4,17 @@
   "author": "otaviodecampos",
   "dependencies": {},
   "devDependencies": {
+    "bower": "^1.4.1",
+    "connect": "^3.4.0",
+    "event-stream": "^3.3.1",
     "gulp": "^3.9.0",
-    "gulp-context": "^0.0.8",
-    "gulp-minify-html": "^1.0.4"
+    "gulp-angular-templatecache": "^1.7.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-context": "0.0.13",
+    "gulp-less": "^3.0.3",
+    "gulp-ng-json": "0.0.6",
+    "gulp-order": "^1.1.1",
+    "gulp-rename": "^1.2.2",
+    "serve-static": "^1.10.0"
   }
 }

@@ -1,0 +1,38 @@
+/* ========================================================================
+   ng-object.less
+ ========================================================================== */
+.row.field-object {
+  border-radius: 3px;
+  margin-left: 0px;
+  margin-right: 0;
+  border: 1px solid #eee;
+  border-left: 5px solid #eee;
+  padding-top: 15px;
+  background-color: rgba(238, 238, 238, 0.3);
+}
+.ng-field {
+  position: relative;
+}
+.ng-field > .ng-field-toolbox {
+  background-color: rgba(238, 238, 238, 0.6);
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  top: -10px;
+  bottom: -10px;
+  border: 1px solid #EAEAEA;
+  border-radius: 3px;
+  display: none;
+}
+.ng-field:hover > .ng-field-toolbox {
+  display: block;
+}
+.ng-field-toolbox-right {
+  position: absolute;
+  left: 15px;
+  z-index: 1;
+  top: -15px;
+}
+.ng-field-toolbox .btn-xs {
+  padding: 6px 6px;
+}

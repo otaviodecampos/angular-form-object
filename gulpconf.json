@@ -1,17 +1,28 @@
 {
     "scope": {
-        "source-dir": "/editor/source",
-        "target-dir": "/editor"
+        "source-dir": "lib/source",
+        "target-dir": "lib",
+        "paths": {
+            "style": "style"
+        }
     },
     "context": {
         "build": {
-            "default": true,
             "clean": true,
-            "watch": true,
             "task-dir": "task/build",
             "task": {
-              "concat": true,
-              "style": true
+                "concat": true,
+                "style": true
+            }
+        },
+        "demo": {
+            "default": true,
+            "from-target-context": "build",
+            "task-dir": "task/demo",
+            "task": {
+                "concat": true,
+                "copy": true,
+                "less": true
             }
         }
     }
