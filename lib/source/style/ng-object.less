@@ -2,6 +2,8 @@
    ng-object.less
  ========================================================================== */
 
+@import "../../../demo/vendor/bootstrap/less/variables.less";
+
 .row.field-object {
   border-radius: 3px;
   margin-left: 0px;
@@ -28,6 +30,13 @@
   display: none;
 }
 
+@media (max-width: @screen-sm) {
+  .ng-field > .ng-field-toolbox {
+    right: 5px;
+    left: 5px;
+  }
+}
+
 .ng-field:hover > .ng-field-toolbox {
   display: block;
 }
@@ -43,8 +52,15 @@
   padding: 6px 6px;
 }
 
-.input-label {
-  margin-left: 15px;
-  margin-right: -15px;
-  padding-right: 15px;
+@media (min-width: @screen-sm) {
+  .ng-field-label .input-label {
+    margin-left: 15px;
+    margin-right: -15px;
+    padding-right: 15px;
+  }
+}
+
+.ng-field-label:hover label {
+  cursor: pointer;
+  color: rgba(102, 175, 233, 1);
 }

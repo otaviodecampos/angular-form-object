@@ -24,6 +24,12 @@
   border-radius: 3px;
   display: none;
 }
+@media (max-width: 768px) {
+  .ng-field > .ng-field-toolbox {
+    right: 5px;
+    left: 5px;
+  }
+}
 .ng-field:hover > .ng-field-toolbox {
   display: block;
 }
@@ -36,8 +42,14 @@
 .ng-field-toolbox .btn-xs {
   padding: 6px 6px;
 }
-.input-label {
-  margin-left: 15px;
-  margin-right: -15px;
-  padding-right: 15px;
+@media (min-width: 768px) {
+  .ng-field-label .input-label {
+    margin-left: 15px;
+    margin-right: -15px;
+    padding-right: 15px;
+  }
+}
+.ng-field-label:hover label {
+  cursor: pointer;
+  color: #66afe9;
 }

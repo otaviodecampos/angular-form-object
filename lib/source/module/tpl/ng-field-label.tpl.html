@@ -1,4 +1,4 @@
-<span ng-switch="$ngField[key].input && fieldLabelCtrl.allow">
+<span class="ng-field-label" ng-switch="$ngField[key].input && fieldLabelCtrl.allow">
     <div ng-keyup="fieldLabelCtrl.keyup($event)" ng-switch-when="true" class="col-sm-2 input-label">
         <input class="col-sm-2 form-control" ng-blur="fieldLabelCtrl.discard()" ng-model="$ngField[key].key"  placeholder="string">
     </div>
