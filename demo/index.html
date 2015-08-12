@@ -6,16 +6,19 @@
   </head>
   <body ng-app="demo">
     <div class="container header">
+        <h1>ng-object</h1>
+        <h4>Responsive object editor built in angular and bootstrap</h4>
+        <hr/>
         <div class="panel panel-default with-nav-tabs">
           <div class="panel-heading">
             <ul class="nav nav-tabs">
-              <li class="active"><a href="#view" data-toggle="tab">View</a></li>
+              <li class="active"><a href="#editor" data-toggle="tab">Editor</a></li>
               <li><a href="#debug" data-toggle="tab">Debug</a></li>
             </ul>
           </div>
           <div class="panel-body">
             <div class="tab-content" ng-controller="DemoCtrl as democtrl">
-              <div class="tab-pane fade in active" id="view">
+              <div class="tab-pane fade in active" id="editor">
                 <div class="form-horizontal">
                   <ng-object model="democtrl.example"></ng-object>
                 </div>
