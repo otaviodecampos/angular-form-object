@@ -1,6 +1,6 @@
 # ng-object
  
-Responsive object editor built in angular
+Responsive object editor built in angular and bootstrap.
 
 Under development.
 
