@@ -10,10 +10,10 @@
   padding-top: 15px;
   background-color: rgba(238, 238, 238, 0.35);
 }
-.ng-field {
+.ng-field > .form-group {
   position: relative;
 }
-.ng-field > .ng-field-toolbox {
+.ng-field > .form-group > .ng-field-toolbox {
   background-color: rgba(194, 221, 248, 0.5);
   position: absolute;
   left: 15px;
@@ -24,32 +24,32 @@
   border-radius: 3px;
   display: none;
 }
-@media (max-width: 768px) {
-  .ng-field > .ng-field-toolbox {
-    right: 5px;
-    left: 5px;
-  }
-}
-.ng-field:hover > .ng-field-toolbox {
-  display: block;
-}
-.ng-field-toolbox-right {
+.ng-field > .form-group > .ng-field-toolbox .ng-field-toolbox-right {
   position: absolute;
   left: 15px;
   z-index: 1;
   top: -15px;
 }
-.ng-field-toolbox .btn-xs {
+.ng-field > .form-group > .ng-field-toolbox .btn-xs {
   padding: 6px 6px;
 }
+@media (max-width: 768px) {
+  .ng-field > .form-group > .ng-field-toolbox {
+    right: 5px;
+    left: 5px;
+  }
+}
 @media (min-width: 768px) {
-  .ng-field-label .input-label {
+  .ng-field > .form-group .ng-field-key .input-label {
     margin-left: 15px;
     margin-right: -15px;
     padding-right: 15px;
   }
 }
-.ng-field-label:hover label {
+.ng-field > .form-group .ng-field-key:hover label {
   cursor: pointer;
   color: #66afe9;
+}
+.ng-field > .form-group:hover > .ng-field-toolbox {
+  display: block;
 }

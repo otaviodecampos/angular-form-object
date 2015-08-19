@@ -1,7 +1,6 @@
 /* ========================================================================
    ng-object.less
  ========================================================================== */
-
 @import "../../../demo/vendor/bootstrap/less/variables.less";
 
 .row.field-object {
@@ -15,52 +14,63 @@
 }
 
 .ng-field {
-  position: relative;
-}
 
-.ng-field > .ng-field-toolbox {
-  background-color: rgba(194, 221, 248, 0.50);
-  position: absolute;
-  left: 15px;
-  right: 15px;
-  top: -10px;
-  bottom: -10px;
-  border: 1px solid rgba(102, 175, 233, 0.30);
-  border-radius: 3px;
-  display: none;
-}
+  & > .form-group {
+    position: relative;
 
-@media (max-width: @screen-sm) {
-  .ng-field > .ng-field-toolbox {
-    right: 5px;
-    left: 5px;
+    & > .ng-field-toolbox {
+      background-color: rgba(194, 221, 248, 0.50);
+      position: absolute;
+      left: 15px;
+      right: 15px;
+      top: -10px;
+      bottom: -10px;
+      border: 1px solid rgba(102, 175, 233, 0.30);
+      border-radius: 3px;
+      display: none;
+
+      & .ng-field-toolbox-right {
+        position: absolute;
+        left: 15px;
+        z-index: 1;
+        top: -15px;
+      }
+
+      & .btn-xs {
+        padding: 6px 6px;
+      }
+
+      @media (max-width: @screen-sm) {
+        & {
+          right: 5px;
+          left: 5px;
+        }
+      }
+
+    }
+
+    & .ng-field-key {
+
+      @media (min-width: @screen-sm) {
+        & .input-label {
+          margin-left: 15px;
+          margin-right: -15px;
+          padding-right: 15px;
+        }
+      }
+
+      &:hover label {
+        cursor: pointer;
+        color: rgba(102, 175, 233, 1);
+      }
+
+    }
+
+    &:hover {
+      & > .ng-field-toolbox {
+        display: block;
+      }
+    }
+
   }
-}
-
-.ng-field:hover > .ng-field-toolbox {
-  display: block;
-}
-
-.ng-field-toolbox-right {
-  position: absolute;
-  left: 15px;
-  z-index: 1;
-  top: -15px;
-}
-
-.ng-field-toolbox .btn-xs {
-  padding: 6px 6px;
-}
-
-@media (min-width: @screen-sm) {
-  .ng-field-label .input-label {
-    margin-left: 15px;
-    margin-right: -15px;
-    padding-right: 15px;
-  }
-}
-
-.ng-field-label:hover label {
-  cursor: pointer;
-  color: rgba(102, 175, 233, 1);
 }

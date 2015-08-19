@@ -27,7 +27,10 @@
                 age: 25,
                 knows: [
                     'angular', 'javascript', 'java', 'css', 'html'
-                ]
+                ],
+                books: {
+                    name: 'Develop with Angular'
+                }
             }
         }
 

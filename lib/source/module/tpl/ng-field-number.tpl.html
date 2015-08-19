@@ -1,7 +1,7 @@
-<div class="ng-field form-group">
+<div class="form-group">
     <ng-field-toolbox></ng-field-toolbox>
-    <ng-field-label></ng-field-label>
+    <ng-field-key></ng-field-key>
     <div class="col-sm-9">
-        <input class="form-control" type="number" ng-model="model[key]" id="{{ key }}" placeholder="number">
+        <input class="form-control" type="number" ng-model="model[key]" id="{{ ::$ngField.path }}=input" placeholder="number">
     </div>
 </div>

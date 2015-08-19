@@ -9,9 +9,27 @@
 })();
 
 (function() {
+    'use strict'
 
     angular.module('ngObject')
-        .controller('NgFieldLabelCtrl', Controller);
+        .constant('TEMPLATE', Constant());
+
+    function Constant() {
+        return {
+          "object": "ngObject/ng-field-object.tpl.html",
+          "array": "ngObject/ng-field-array.tpl.html",
+          "string": "ngObject/ng-field-string.tpl.html",
+          "boolean": "ngObject/ng-field-boolean.tpl.html",
+          "number": "ngObject/ng-field-number.tpl.html"
+};
+    }
+
+})();
+
+(function() {
+
+    angular.module('ngObject')
+        .controller('NgFieldKeyCtrl', Controller);
 
     function Controller($scope, $element, $timeout, NgObject) {
 
@@ -56,20 +74,20 @@
     angular.module('ngObject')
         .controller('NgFieldCtrl', Controller);
 
-    function Controller($scope, $timeout, NgObject) {
+    function Controller($scope, $timeout, NgObject, TEMPLATE) {
 
-        $scope.$ngField = {};
-
-        var template = {
-            object: 'ngObject/ng-field-object.tpl.html',
-            array: 'ngObject/ng-field-array.tpl.html',
-            string: 'ngObject/ng-field-string.tpl.html',
-            boolean: 'ngObject/ng-field-boolean.tpl.html',
-            number: 'ngObject/ng-field-number.tpl.html'
+        // Array field
+        if($scope.i != undefined) {
+            $scope.model = $scope.model[$scope.key];
+            $scope.path = [$scope.path, $scope.key].join('.');
+            $scope.key = $scope.i;
+            $scope.tpl = TEMPLATE['array'];
+        } else {
+            $scope.tpl = TEMPLATE[typeof $scope.value];
         }
 
-        $scope.templateOf = function(value) {
-            return template[isArray(value) ? 'array' : typeof value];
+        $scope.$ngField = {
+            path: $scope.path ? [$scope.path, $scope.key].join('.') : $scope.key
         };
 
         $scope.moveUp = function() {
@@ -100,15 +118,12 @@
                 index = Object.keys($scope.model).indexOf($scope.key);
                 NgObject.reorder($scope.model, $scope.key, {index: index, factor: factor});
 
-                // When the order of the keys change, and the key value is primitive,
-                // ng-repeat is not updated because the track by.
+                // Force the ng-repeat to reflect sorting by attributes
                 value = $scope.model[$scope.key];
-                if(!isArray() && typeof value != 'object') {
-                    $scope.model[$scope.key] = undefined;
-                    $timeout(function() {
-                        $scope.model[$scope.key] = value;
-                    });
-                }
+                $scope.model[$scope.key] = typeof(value) == 'object' ? angular.copy(value) : undefined;
+                $timeout(function() {
+                    $scope.model[$scope.key] = value;
+                });
             }
         }
 
@@ -129,14 +144,14 @@
     'use strict'
 
     angular.module('ngObject')
-        .directive('ngFieldLabel', Directive);
+        .directive('ngFieldKey', Directive);
 
     function Directive() {
         return {
             restrict: 'E',
-            templateUrl: 'ngObject/ng-field-label.tpl.html',
+            templateUrl: 'ngObject/ng-field-key.tpl.html',
             replace: true,
-            controller: 'NgFieldLabelCtrl as fieldLabelCtrl'
+            controller: 'NgFieldKeyCtrl as fieldKeyCtrl'
         }
     }
 })();
@@ -180,7 +195,8 @@
             restrict: 'E',
             templateUrl: 'ngObject/ng-object.tpl.html',
             scope: {
-                model: "="
+                model: "=",
+                path: "="
             },
             controller: 'NgObjectCtrl as objCtrl',
             replace: true
@@ -196,10 +212,12 @@
 
         this.reorder = function (object, key, option) {
 
-            var copy = angular.copy(object)
+            var copy = {}
                 , keys = Object.keys(object)
                 , value
-                , k
+                , k;
+
+            angular.extend(copy, object);
 
             if (option.factor) {
                 option.index = this.reorderArray(keys, option.index, option.factor);
@@ -236,12 +254,12 @@
     }
 
 })();
-angular.module("ngObject").run(["$templateCache", function($templateCache) {$templateCache.put("ngObject/ng-field-array.tpl.html","<div class=\"ng-field form-group\">\r\n    <ng-field-toolbox></ng-field-toolbox>\r\n    <ng-field-label></ng-field-label>\r\n    <div class=\"col-sm-10\">\r\n        <p class=\"form-control-static\">array</p>\r\n    </div>\r\n</div>\r\n<div class=\"row form-group field-object\">\r\n    <div class=\"col-md-12\">\r\n        <ng-field ng-repeat=\"(k, value) in model[key] track by k\" ng-init=\"model = model[key]; key = k;\"></ng-field>\r\n    </div>\r\n</div>");
-$templateCache.put("ngObject/ng-field-boolean.tpl.html","<div class=\"ng-field ng-field-boolean form-group\">\r\n    <ng-field-toolbox></ng-field-toolbox>\r\n    <ng-field-label></ng-field-label>\r\n    <div class=\"col-sm-9\">\r\n        <label class=\"radio-inline\">\r\n            <input type=\"radio\" name=\"boolean\" ng-model=\"model[key]\" ng-value=\"true\"> true\r\n        </label>\r\n        <label class=\"radio-inline\">\r\n            <input type=\"radio\" name=\"boolean\" ng-model=\"model[key]\" ng-value=\"false\"> false\r\n        </label>\r\n    </div>\r\n</div>");
-$templateCache.put("ngObject/ng-field-label.tpl.html","<span class=\"ng-field-label\" ng-switch=\"$ngField[key].input && fieldLabelCtrl.allow\">\r\n    <div ng-keyup=\"fieldLabelCtrl.keyup($event)\" ng-switch-when=\"true\" class=\"col-sm-2 input-label\">\r\n        <input class=\"col-sm-2 form-control\" ng-blur=\"fieldLabelCtrl.discard()\" ng-model=\"$ngField[key].key\"  placeholder=\"string\">\r\n    </div>\r\n    <label ng-click=\"fieldLabelCtrl.input()\" ng-switch-default class=\"col-sm-2 control-label\" ng-bind=\"key\"></label>\r\n</span>");
-$templateCache.put("ngObject/ng-field-number.tpl.html","<div class=\"ng-field form-group\">\r\n    <ng-field-toolbox></ng-field-toolbox>\r\n    <ng-field-label></ng-field-label>\r\n    <div class=\"col-sm-9\">\r\n        <input class=\"form-control\" type=\"number\" ng-model=\"model[key]\" id=\"{{ key }}\" placeholder=\"number\">\r\n    </div>\r\n</div>");
-$templateCache.put("ngObject/ng-field-object.tpl.html","<div class=\"ng-field form-group\">\r\n    <ng-field-toolbox></ng-field-toolbox>\r\n    <ng-field-label></ng-field-label>\r\n    <div class=\"col-sm-10\">\r\n        <p class=\"form-control-static\">object</p>\r\n    </div>\r\n</div>\r\n<div class=\"row form-group field-object\">\r\n    <div class=\"col-md-12\">\r\n        <ng-object model=\"model[key]\"></ng-object>\r\n    </div>\r\n</div>");
-$templateCache.put("ngObject/ng-field-string.tpl.html","<div class=\"ng-field form-group\">\r\n    <ng-field-toolbox></ng-field-toolbox>\r\n    <ng-field-label></ng-field-label>\r\n    <div class=\"col-sm-9\">\r\n        <input class=\"form-control\" ng-model=\"model[key]\" id=\"{{ key }}\" placeholder=\"string\">\r\n    </div>\r\n</div>");
+angular.module("ngObject").run(["$templateCache", function($templateCache) {$templateCache.put("ngObject/ng-field-array.tpl.html","<div class=\"form-group\">\r\n    <ng-field-toolbox></ng-field-toolbox>\r\n    <ng-field-key></ng-field-key>\r\n    <div class=\"col-sm-10\">\r\n        <p class=\"form-control-static\">array</p>\r\n    </div>\r\n</div>\r\n<div class=\"row form-group field-object\">\r\n    <div class=\"col-md-12\">\r\n        <ng-field ng-repeat=\"(i, value) in model[key] track by i\"></ng-field>\r\n    </div>\r\n</div>");
+$templateCache.put("ngObject/ng-field-boolean.tpl.html","<div class=\"ng-field-boolean form-group\">\r\n    <ng-field-toolbox></ng-field-toolbox>\r\n    <ng-field-key></ng-field-key>\r\n    <div class=\"col-sm-9\">\r\n        <label class=\"radio-inline\">\r\n            <input type=\"radio\" name=\"boolean\" ng-model=\"model[key]\" id=\"{{ ::$ngField.path }}=true\" ng-value=\"true\"> true\r\n        </label>\r\n        <label class=\"radio-inline\">\r\n            <input type=\"radio\" name=\"boolean\" ng-model=\"model[key]\" id=\"{{ ::$ngField.path }}=false\" ng-value=\"false\"> false\r\n        </label>\r\n    </div>\r\n</div>");
+$templateCache.put("ngObject/ng-field-key.tpl.html","<span class=\"ng-field-key\" ng-switch=\"$ngField[key].input && fieldKeyCtrl.allow\">\r\n    <div ng-keyup=\"fieldKeyCtrl.keyup($event)\" ng-switch-when=\"true\" class=\"col-sm-2 input-label\">\r\n        <input class=\"col-sm-2 form-control\" ng-blur=\"fieldKeyCtrl.discard()\" ng-model=\"$ngField[key].key\"  placeholder=\"string\">\r\n    </div>\r\n    <label ng-click=\"fieldKeyCtrl.input()\" ng-switch-default class=\"col-sm-2 control-label\" ng-bind=\"key\"></label>\r\n</span>");
+$templateCache.put("ngObject/ng-field-number.tpl.html","<div class=\"form-group\">\r\n    <ng-field-toolbox></ng-field-toolbox>\r\n    <ng-field-key></ng-field-key>\r\n    <div class=\"col-sm-9\">\r\n        <input class=\"form-control\" type=\"number\" ng-model=\"model[key]\" id=\"{{ ::$ngField.path }}=input\" placeholder=\"number\">\r\n    </div>\r\n</div>");
+$templateCache.put("ngObject/ng-field-object.tpl.html","<div class=\"form-group\">\r\n    <ng-field-toolbox></ng-field-toolbox>\r\n    <ng-field-key></ng-field-key>\r\n    <div class=\"col-sm-10\">\r\n        <p class=\"form-control-static\">object</p>\r\n    </div>\r\n</div>\r\n<div class=\"row form-group field-object\">\r\n    <div class=\"col-md-12\">\r\n        <ng-object path=\"$ngField.path\" model=\"model[key]\"></ng-object>\r\n    </div>\r\n</div>");
+$templateCache.put("ngObject/ng-field-string.tpl.html","<div class=\"form-group\">\r\n    <ng-field-toolbox></ng-field-toolbox>\r\n    <ng-field-key></ng-field-key>\r\n    <div class=\"col-sm-9\">\r\n        <input class=\"form-control\" ng-model=\"model[key]\" id=\"{{ ::$ngField.path }}=input\" placeholder=\"string\">\r\n    </div>\r\n</div>");
 $templateCache.put("ngObject/ng-field-toolbox.tpl.html","<div class=\"ng-field-toolbox\">\r\n    <div class=\"ng-field-toolbox-right\">\r\n        <button class=\"btn btn-default btn-xs\" ng-click=\"moveUp()\">\r\n            <span class=\"glyphicon glyphicon-arrow-up\"></span>\r\n        </button>\r\n        <button class=\"btn btn-default btn-xs\" ng-click=\"moveDown()\">\r\n            <span class=\"glyphicon glyphicon-arrow-down\"></span>\r\n        </button>\r\n        <button class=\"btn btn-default btn-xs\" ng-click=\"delete()\">\r\n            <span class=\"glyphicon glyphicon-trash\"></span>\r\n        </button>\r\n    </div>\r\n</div>");
-$templateCache.put("ngObject/ng-field.tpl.html","<span>\r\n    <span ng-include=\"tpl\" ng-init=\"tpl = templateOf(value)\"></span>\r\n</span>");
-$templateCache.put("ngObject/ng-object.tpl.html","<div class=\"row\">\r\n    <div class=\"col-md-12\">\r\n        <ng-field ng-repeat=\"(key, value) in model  track by key\"></ng-field>\r\n    </div>\r\n</div>");}]);
+$templateCache.put("ngObject/ng-field.tpl.html","<span id=\"{{ ::$ngField.path }}\" class=\"ng-field\" ng-include=\"tpl\"></span>");
+$templateCache.put("ngObject/ng-object.tpl.html","<div class=\"row ng-object\">\r\n    <div class=\"col-md-12\">\r\n        <ng-field ng-repeat=\"(key, value) in model track by key\"></ng-field>\r\n    </div>\r\n</div>");}]);
