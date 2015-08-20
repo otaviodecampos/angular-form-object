@@ -3,5 +3,8 @@
     "array": "ngObject/ng-field-array.tpl.html",
     "string": "ngObject/ng-field-string.tpl.html",
     "boolean": "ngObject/ng-field-boolean.tpl.html",
-    "number": "ngObject/ng-field-number.tpl.html"
+    "number": "ngObject/ng-field-number.tpl.html",
+    "null": "ngObject/ng-field-null.tpl.html",
+    "undefined": "ngObject/ng-field-undefined.tpl.html"
+
 }

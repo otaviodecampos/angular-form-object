@@ -2,6 +2,9 @@
     <ng-field-toolbox></ng-field-toolbox>
     <ng-field-key></ng-field-key>
     <div class="col-sm-9">
-        <input class="form-control" type="number" ng-model="model[key]" id="{{ ::$ngField.path }}=input" placeholder="number">
+        <div class="input-group">
+            <input class="form-control" type="number" ng-model="model[key]" id="{{ ::$ngField.path }}=input" placeholder="number">
+            <ng-field-typeselect></ng-field-typeselect>
+        </div>
     </div>
 </div>

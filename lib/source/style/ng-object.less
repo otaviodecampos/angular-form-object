@@ -11,66 +11,112 @@
   border-left: 5px solid #eee;
   padding-top: 15px;
   background-color: rgba(238, 238, 238, 0.35);
+
+  & .row.field-object {
+    background-color: rgba(238, 238, 238, 0.50);
+  }
 }
 
-.ng-field {
+.ng-object {
 
-  & > .form-group {
-    position: relative;
+  & .btn-circle {
+    border-radius: 50%;
+  }
 
-    & > .ng-field-toolbox {
-      background-color: rgba(194, 221, 248, 0.50);
-      position: absolute;
-      left: 15px;
-      right: 15px;
-      top: -10px;
-      bottom: -10px;
-      border: 1px solid rgba(102, 175, 233, 0.30);
-      border-radius: 3px;
-      display: none;
-
-      & .ng-field-toolbox-right {
-        position: absolute;
-        left: 15px;
-        z-index: 1;
-        top: -15px;
-      }
-
-      & .btn-xs {
-        padding: 6px 6px;
-      }
-
-      @media (max-width: @screen-sm) {
-        & {
-          right: 5px;
-          left: 5px;
-        }
-      }
-
-    }
-
-    & .ng-field-key {
-
-      @media (min-width: @screen-sm) {
-        & .input-label {
-          margin-left: 15px;
-          margin-right: -15px;
-          padding-right: 15px;
-        }
-      }
-
-      &:hover label {
-        cursor: pointer;
-        color: rgba(102, 175, 233, 1);
-      }
-
-    }
+  & .btn-hover {
+    border: 1px solid transparent;
+    background: transparent;
 
     &:hover {
-      & > .ng-field-toolbox {
-        display: block;
-      }
+      border: 1px solid #ccc;
+      background: #fff;
     }
-
   }
+
+  & .btn-xs {
+    padding: 6px 6px;
+
+    & .glyphicon {
+      top: 0;
+    }
+  }
+
+  & .ng-field {
+
+    & > .form-group {
+      position: relative;
+
+      & .input-group {
+        & .dropdown-toggle {
+          /*border-left: 0;
+          box-shadow: inset 0 1px 0px rgba(0, 0, 0, .075);*/
+          color: #777;
+        }
+      }
+
+      & > .ng-field-toolbox {
+        background-color: rgba(194, 221, 248, 0.50);
+        position: absolute;
+        left: 15px;
+        right: 15px;
+        top: -10px;
+        bottom: -10px;
+        border: 1px solid rgba(102, 175, 233, 0.30);
+        border-radius: 3px;
+        display: none;
+
+        & .ng-field-toolbox-right {
+          position: absolute;
+          left: 15px;
+          z-index: 1;
+          top: -15px;
+        }
+
+        @media (max-width: @screen-sm) {
+          & {
+            right: 5px;
+            left: 5px;
+          }
+        }
+
+      }
+
+      & .ng-field-key {
+
+        & .control-label {
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        @media (min-width: @screen-sm) {
+          & .input-label {
+            margin-left: 15px;
+            margin-right: -15px;
+            padding-right: 15px;
+          }
+        }
+
+        &:hover label {
+          cursor: pointer;
+          color: rgba(102, 175, 233, 1);
+        }
+
+      }
+
+      &:hover {
+        & > .ng-field-toolbox {
+          display: block;
+        }
+      }
+
+    }
+  }
+}
+
+.form-horizontal > .ng-object > div > .form-group.last:only-child {
+  & .col-md-2 {
+    display: none;
+  }
+
+  margin-bottom: 0px;
 }
