@@ -3,10 +3,10 @@
     <ng-field-key></ng-field-key>
     <div class="col-sm-9">
         <label class="radio-inline">
-            <input type="radio" name="boolean" ng-model="model[key]" id="{{ ::$ngField.path }}=true" ng-value="true"> true
+            <input type="radio" name="{{ ::$ngField.path }}" ng-model="model[key]" id="{{ ::$ngField.path }}=true" ng-value="true"> true
         </label>
         <label class="radio-inline">
-            <input type="radio" name="boolean" ng-model="model[key]" id="{{ ::$ngField.path }}=false" ng-value="false"> false
+            <input type="radio" name="{{ ::$ngField.path }}" ng-model="model[key]" id="{{ ::$ngField.path }}=false" ng-value="false"> false
         </label>
     </div>
 </div>

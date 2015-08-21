@@ -1,41 +1,23 @@
 /* ========================================================================
    ng-object.less
  ========================================================================== */
-.row.field-object {
-  border-radius: 3px;
-  margin-left: 0px;
-  margin-right: 0;
-  border: 1px solid #eee;
-  border-left: 5px solid #eee;
-  padding-top: 15px;
-  background-color: rgba(238, 238, 238, 0.35);
-}
-.row.field-object .row.field-object {
-  background-color: rgba(238, 238, 238, 0.5);
-}
-.ng-object .btn-circle {
-  border-radius: 50%;
-}
-.ng-object .btn-hover {
-  border: 1px solid transparent;
-  background: transparent;
-}
-.ng-object .btn-hover:hover {
-  border: 1px solid #ccc;
-  background: #fff;
-}
-.ng-object .btn-xs {
-  padding: 6px 6px;
-}
-.ng-object .btn-xs .glyphicon {
-  top: 0;
+.ng-object .ng-field {
+  /* ========================================================================
+   ng-field.less
+ ========================================================================== */
 }
 .ng-object .ng-field > .form-group {
+  /* ========================================================================
+   ng-field-boolean.less
+ ========================================================================== */
   position: relative;
+}
+.ng-object .ng-field > .form-group.ng-field-boolean .radio-inline {
+  height: 34px;
 }
 .ng-object .ng-field > .form-group .input-group .dropdown-toggle {
   /*border-left: 0;
-          box-shadow: inset 0 1px 0px rgba(0, 0, 0, .075);*/
+      box-shadow: inset 0 1px 0px rgba(0, 0, 0, .075);*/
   color: #777;
 }
 .ng-object .ng-field > .form-group > .ng-field-toolbox {
@@ -79,9 +61,38 @@
 .ng-object .ng-field > .form-group:hover > .ng-field-toolbox {
   display: block;
 }
+.ng-object .btn-circle {
+  border-radius: 50%;
+}
+.ng-object .btn-hover {
+  border: 1px solid transparent;
+  background: transparent;
+}
+.ng-object .btn-hover:hover {
+  border: 1px solid #ccc;
+  background: #fff;
+}
+.ng-object .btn-xs {
+  padding: 6px 6px;
+}
+.ng-object .btn-xs .glyphicon {
+  top: 0;
+}
 .form-horizontal > .ng-object > div > .form-group.last:only-child {
   margin-bottom: 0px;
 }
 .form-horizontal > .ng-object > div > .form-group.last:only-child .col-md-2 {
   display: none;
+}
+.row.field-object {
+  border-radius: 3px;
+  margin-left: 0px;
+  margin-right: 0;
+  border: 1px solid #eee;
+  border-left: 5px solid #eee;
+  padding-top: 15px;
+  background-color: rgba(238, 238, 238, 0.35);
+}
+.row.field-object .row.field-object {
+  background-color: rgba(238, 238, 238, 0.5);
 }
