@@ -1,4 +1,4 @@
-# angular-formjs
+# angular-formoc
  
 Form object built in angular and bootstrap.
 
