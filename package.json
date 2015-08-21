@@ -1,5 +1,5 @@
 {
-  "name": "ng-object",
+  "name": "angular-formoc",
   "version": "0.0.1",
   "author": "otaviodecampos",
   "dependencies": {},
@@ -20,7 +20,7 @@
   "main": "demo/server.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/otaviodecampos/ng-object.git"
+    "url": "https://github.com/otaviodecampos/angular-formoc.git"
   },
   "engines": {
     "node": ">= 0.6.0",

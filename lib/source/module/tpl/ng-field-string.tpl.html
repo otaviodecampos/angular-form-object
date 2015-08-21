@@ -1,10 +1,10 @@
 <div class="form-group">
     <ng-field-toolbox></ng-field-toolbox>
     <ng-field-key></ng-field-key>
-    <div class="col-sm-9">
+    <div class="col-sm-10">
         <div class="input-group">
-            <input type="text" class="form-control" ng-model="model[key]" id="{{ ::$ngField.path }}=input" placeholder="string">
             <ng-field-typeselect></ng-field-typeselect>
+            <input type="text" class="form-control" ng-model="model[key]" id="{{ ::$ngField.path }}=input" placeholder="string">
         </div>
     </div>
 </div>

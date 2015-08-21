@@ -1,0 +1,101 @@
+/* ========================================================================
+   ng-object.less
+ ========================================================================== */
+.ng-object .ng-field {
+  /* ========================================================================
+   ng-field.less
+ ========================================================================== */
+}
+.ng-object .ng-field > .form-group {
+  /* ========================================================================
+   ng-field-boolean.less
+ ========================================================================== */
+  position: relative;
+}
+.ng-object .ng-field > .form-group.ng-field-boolean .radio-inline {
+  height: 34px;
+}
+.ng-object .ng-field > .form-group .col-sm-10 {
+  padding-right: 25px;
+}
+.ng-object .ng-field > .form-group .input-group .dropdown-toggle {
+  /*border-left: 0;
+      box-shadow: inset 0 1px 0px rgba(0, 0, 0, .075);*/
+  color: #777;
+}
+.ng-object .ng-field > .form-group > .ng-field-toolbox {
+  background-color: rgba(194, 221, 248, 0.5);
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  top: -10px;
+  bottom: -10px;
+  border: 1px solid rgba(102, 175, 233, 0.3);
+  border-radius: 3px;
+  display: none;
+}
+.ng-object .ng-field > .form-group > .ng-field-toolbox .ng-field-toolbox-right {
+  position: absolute;
+  left: 15px;
+  z-index: 1;
+  top: -15px;
+}
+@media (max-width: 768px) {
+  .ng-object .ng-field > .form-group > .ng-field-toolbox {
+    right: 5px;
+    left: 5px;
+  }
+}
+.ng-object .ng-field > .form-group .ng-field-key .control-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (min-width: 768px) {
+  .ng-object .ng-field > .form-group .ng-field-key .input-label {
+    margin-left: 15px;
+    margin-right: -15px;
+    padding-right: 15px;
+  }
+}
+.ng-object .ng-field > .form-group .ng-field-key:hover label {
+  cursor: pointer;
+  color: #66afe9;
+}
+.ng-object .ng-field > .form-group:hover > .ng-field-toolbox {
+  display: block;
+}
+.ng-object .btn-circle {
+  border-radius: 50%;
+}
+.ng-object .btn-hover {
+  border: 1px solid transparent;
+  background: transparent;
+}
+.ng-object .btn-hover:hover {
+  border: 1px solid #ccc;
+  background: #fff;
+}
+.ng-object .btn-xs {
+  padding: 6px 6px;
+}
+.ng-object .btn-xs .glyphicon {
+  top: 0;
+}
+.form-horizontal > .ng-object > div > .form-group.last:only-child {
+  margin-bottom: 0px;
+}
+.form-horizontal > .ng-object > div > .form-group.last:only-child .col-md-2 {
+  display: none;
+}
+.row.field-object {
+  border-radius: 3px;
+  margin-left: 0px;
+  margin-right: 0;
+  border: 1px solid #eee;
+  border-left: 5px solid #eee;
+  padding-top: 15px;
+  background-color: rgba(238, 238, 238, 0.35);
+}
+.row.field-object .row.field-object {
+  background-color: rgba(238, 238, 238, 0.5);
+}

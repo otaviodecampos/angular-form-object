@@ -6,5 +6,4 @@
     "number": "ngObject/ng-field-number.tpl.html",
     "null": "ngObject/ng-field-none.tpl.html",
     "undefined": "ngObject/ng-field-none.tpl.html"
-
 }

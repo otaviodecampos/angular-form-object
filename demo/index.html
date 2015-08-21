@@ -1,31 +1,35 @@
 <html>
   <head>
     <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="/vendor/ng-object/ng-object.css">
+    <link rel="stylesheet" href="/vendor/angular-formoc/angular-formoc.css">
     <link rel="stylesheet" href="/build/app.css">
-    <title>ng-object demo</title>
+    <title>angular-formoc demo</title>
   </head>
   <body ng-app="demo">
     <div class="container header">
-        <h1>ng-object</h1>
-        <h4>Responsive object editor built in angular and bootstrap</h4>
+        <h1>angular-formoc</h1>
+        <h4>Form object built in angular and bootstrap.</h4>
         <hr/>
-        <div class="panel panel-default with-nav-tabs">
+        <div class="panel panel-default with-nav-tabs" ng-controller="DemoCtrl as democtrl">
           <div class="panel-heading">
             <ul class="nav nav-tabs">
-              <li class="active"><a href="#editor" data-toggle="tab">Editor</a></li>
+              <li class="active"><a href="#json" ng-click="democtrl.aceFocus();" data-toggle="tab">Json</a></li>
+              <li><a href="#form" data-toggle="tab">Form</a></li>
               <li><a href="#debug" data-toggle="tab">Debug</a></li>
             </ul>
           </div>
           <div class="panel-body">
-            <div class="tab-content" ng-controller="DemoCtrl as democtrl">
-              <div class="tab-pane fade in active" id="editor">
+            <div class="tab-content">
+              <div class="tab-pane fade in active" id="json">
+                <div ui-ace="{mode: 'javascript', theme:'github', onBlur: democtrl.aceBlur}" ng-model="democtrl.source"></div>
+              </div>
+              <div class="tab-pane fade" id="form">
                 <div class="form-horizontal">
-                  <ng-object model="democtrl.example"></ng-object>
+                  <ng-object model="democtrl.obj"></ng-object>
                 </div>
               </div>
               <div class="tab-pane fade" id="debug">
-                <pre ng-bind="democtrl.example | json:true"></pre>
+                <pre ng-bind="democtrl.obj | json:true"></pre>
               </div>
             </div>
           </div>
@@ -37,7 +41,9 @@
     <script src="/vendor/jquery/dist/jquery.js"></script>
     <script src="/vendor/bootstrap/dist/js/bootstrap.js"></script>
     <script src="/vendor/angular/angular.js"></script>
-    <script src="/vendor/ng-object/ng-object.js"></script>
+    <script src="/vendor/ace-builds/src-min-noconflict/ace.js"></script>
+    <script src="/vendor/ui-ace/ui-ace.js"></script>
+    <script src="/vendor/angular-formoc/angular-formoc.js"></script>
     <script src="/build/app.js"></script>
   </body>
 </html>

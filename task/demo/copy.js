@@ -5,6 +5,6 @@ module.exports = function () {
     var input = this.input('lib/build', ['**/*']);
 
     return gulp.src(input)
-        .pipe(gulp.dest('demo/vendor/ng-object'));
+        .pipe(gulp.dest('demo/vendor/angular-formoc'));
 
 }

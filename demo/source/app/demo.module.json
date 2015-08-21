@@ -1,6 +1,7 @@
 {
     "name": "demo",
     "dependencies": [
-        "ngObject"
+        "formoc"
+        , "ui.ace"
     ]
 }

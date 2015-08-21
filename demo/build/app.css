@@ -267,3 +267,6 @@
   background-color: #a94442;
   /* active bg color */
 }
+.ace_editor {
+  height: 300px;
+}
