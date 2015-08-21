@@ -1,6 +1,6 @@
-# ng-object
+# angular-form-object
  
-Responsive object editor built in angular and bootstrap.
+Form object built in angular and bootstrap.
 
 Under development.
 
