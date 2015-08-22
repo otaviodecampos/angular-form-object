@@ -19,10 +19,14 @@
     function Controller($scope, $timeout) {
 
         var _this = this;
-        _this.obj = {};
+        _this.obj = {
+            name: 'angular-formoc',
+            description: 'Form object built in angular and bootstrap.'
+        };
 
         _this.aceFocus = function() {
-
+          ace.edit($('.ace_editor')[0]).resize();
+          ace.edit($('.ace_editor')[0]).renderer.updateFull();
         }
 
         _this.aceBlur = function(e) {
@@ -35,8 +39,6 @@
 
         $scope.$watch('democtrl.obj', function (obj) {
           _this.source = JSON.stringify(obj, null, 2);
-          ace.edit($('.ace_editor')[0]).resize();
-          ace.edit($('.ace_editor')[0]).renderer.updateFull();
         }, true);
 
     }

@@ -1,5 +1,5 @@
-<div class="input-group-btn">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ typeCtrl.type }} <span class="caret"></span></button>
+<div ng-class="::{ true: 'btn-group', false: 'input-group-btn' }[['string', 'number'].indexOf(typeCtrl.type) == -1]">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ ::String(typeCtrl.type) }} <span class="caret"></span></button>
     <ul class="dropdown-menu dropdown-menu-right">
         <li ng-repeat="type in ::typeCtrl.types track by type"><a href="#" ng-click="typeCtrl.set(type)">{{ ::type }}</a></li>
     </ul>
