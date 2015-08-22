@@ -1,6 +1,157 @@
 /* ========================================================================
-   ng-object.less
+   angular-form-object.less
  ========================================================================== */
+/* ========================================================================
+   checkbox-radio.less
+ ========================================================================== */
+.c-checkbox,
+.c-radio {
+  margin-right: 4px;
+}
+.c-checkbox *,
+.c-radio * {
+  cursor: pointer;
+}
+.c-checkbox input,
+.c-radio input {
+  opacity: 0;
+  position: absolute;
+  margin-left: 0 !important;
+}
+.c-checkbox span,
+.c-radio span {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: -20px;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+  margin-right: 5px;
+  text-align: center;
+}
+.c-checkbox span:before,
+.c-radio span:before {
+  margin-left: 0;
+}
+.c-checkbox:hover span,
+.c-radio:hover span {
+  border-color: #333333;
+}
+.form-inline .c-checkbox span,
+.form-inline .c-radio span {
+  margin-left: 0;
+}
+.c-checkbox.c-checkbox-rounded span,
+.c-radio.c-checkbox-rounded span,
+.c-checkbox.c-radio-rounded span,
+.c-radio.c-radio-rounded span {
+  border-radius: 500px;
+}
+/* override for radio */
+.c-radio span {
+  border-radius: 500px;
+}
+/* the icon */
+.c-checkbox span:before,
+.c-radio span:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  text-align: center !important;
+  font-size: 12px;
+  line-height: 18px;
+  vertical-align: middle;
+}
+/* Checked state */
+.c-checkbox,
+.c-radio {
+  /* override for radio */
+  /* Disable state */
+  /* override for radio */
+}
+.c-checkbox input[type=checkbox]:checked + span:before,
+.c-radio input[type=checkbox]:checked + span:before,
+.c-checkbox input[type=radio]:checked + span:before,
+.c-radio input[type=radio]:checked + span:before {
+  color: #fff;
+  opacity: 1;
+  transition: color 0.3s ease-out;
+}
+.c-checkbox input[type=checkbox]:checked + span,
+.c-radio input[type=checkbox]:checked + span,
+.c-checkbox input[type=radio]:checked + span,
+.c-radio input[type=radio]:checked + span {
+  border-color: #333333;
+  background-color: #333333;
+}
+.c-checkbox input[type=radio]:checked + span,
+.c-radio input[type=radio]:checked + span {
+  background-color: #fff;
+}
+.c-checkbox input[type=radio]:checked + span:before,
+.c-radio input[type=radio]:checked + span:before {
+  color: #333333;
+}
+.c-checkbox input[type=checkbox]:disabled + span,
+.c-radio input[type=checkbox]:disabled + span,
+.c-checkbox input[type=radio]:disabled + span,
+.c-radio input[type=radio]:disabled + span {
+  border-color: #dddddd !important;
+  background-color: #dddddd !important;
+}
+.c-checkbox input[type=radio]:disabled + span,
+.c-radio input[type=radio]:disabled + span {
+  background-color: #fff !important;
+}
+.c-checkbox input[type=radio]:disabled + span:before,
+.c-radio input[type=radio]:disabled + span:before {
+  color: #dddddd;
+}
+.c-radio.c-radio-nofont {
+  /* override for radio */
+  /* Disable state */
+  /* override for radio */
+}
+.c-radio.c-radio-nofont span:before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  left: 50%;
+  margin-top: -5px;
+  margin-left: -5px;
+  border-radius: 500px;
+}
+.c-radio.c-radio-nofont input[type=radio]:checked + span:before {
+  color: #fff;
+  opacity: 1;
+  transition: color 0.3s ease-out;
+}
+.c-radio.c-radio-nofont input[type=radio]:checked + span {
+  border-color: #333333;
+  background-color: #333333;
+}
+.c-radio.c-radio-nofont input[type=radio]:checked + span {
+  background-color: #fff;
+}
+.c-radio.c-radio-nofont input[type=radio]:checked + span:before {
+  background-color: #333333;
+}
+.c-radio.c-radio-nofont input[type=radio]:disabled + span {
+  border-color: #dddddd !important;
+  background-color: #dddddd !important;
+}
+.c-radio.c-radio-nofont input[type=radio]:disabled + span {
+  background-color: #fff !important;
+}
+.c-radio.c-radio-nofont input[type=radio]:disabled + span:before {
+  background-color: #dddddd;
+}
 .ng-object .fo-field {
   /* ========================================================================
    fo-field.less
@@ -17,6 +168,11 @@
 }
 .ng-object .fo-field > .form-group.fo-field-boolean .radio-inline:last-of-type {
   margin-right: 10px;
+}
+.ng-object .fo-field > .form-group.fo-field-boolean .checkbox {
+  float: left;
+  margin-right: 10px;
+  z-index: 3;
 }
 .ng-object .fo-field > .form-group .col-sm-10 {
   padding-right: 25px;
