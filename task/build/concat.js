@@ -11,9 +11,9 @@ module.exports = function () {
         , inputTpl = this.input(this.sourceDir, ['**/*.tpl.html']);
 
     var options = {
-        module: 'formoc',
+        module: 'formobject',
         transformUrl: function(url) {
-            return 'ngObject/' + url.match(/[\w-]+.tpl.html$/g)[0];
+            return 'formobject/' + url.match(/[\w-]+.tpl.html$/g)[0];
         }
     }
 
@@ -30,7 +30,7 @@ module.exports = function () {
             "**/*.js",
             "**/*.tpl.html"
         ]))
-        .pipe(concat('angular-formoc.js'))
+        .pipe(concat('angular-form-object.js'))
         .pipe(gulp.dest(this.targetDir));
 
 }

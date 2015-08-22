@@ -1,9 +1,9 @@
 {
-    "object": "ngObject/ng-field-object.tpl.html",
-    "array": "ngObject/ng-field-array.tpl.html",
-    "string": "ngObject/ng-field-string.tpl.html",
-    "boolean": "ngObject/ng-field-boolean.tpl.html",
-    "number": "ngObject/ng-field-number.tpl.html",
-    "null": "ngObject/ng-field-null.tpl.html",
-    "undefined": "ngObject/ng-field-undefined.tpl.html"
+    "object": "formobject/fo-field-object.tpl.html",
+    "array": "formobject/fo-field-array.tpl.html",
+    "string": "formobject/fo-field-string.tpl.html",
+    "boolean": "formobject/fo-field-boolean.tpl.html",
+    "number": "formobject/fo-field-number.tpl.html",
+    "null": "formobject/fo-field-null.tpl.html",
+    "undefined": "formobject/fo-field-undefined.tpl.html"
 }

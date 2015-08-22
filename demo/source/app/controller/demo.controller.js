@@ -4,18 +4,13 @@
     angular.module('demo')
         .controller('DemoCtrl', Controller);
 
-    function Controller($scope, $timeout) {
+    function Controller($scope) {
 
         var _this = this;
         _this.obj = {
-            name: 'angular-formoc',
+            name: 'angular-form-object',
             description: 'Form object built in angular and bootstrap.'
         };
-
-        _this.aceFocus = function() {
-          ace.edit($('.ace_editor')[0]).resize();
-          ace.edit($('.ace_editor')[0]).renderer.updateFull();
-        }
 
         _this.aceBlur = function(e) {
             try {

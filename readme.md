@@ -1,7 +1,7 @@
-# angular-formoc
+# angular-form-object
  
 Form object built in angular and bootstrap.
 
 Under development.
 
-[Spy demo](http://ngobject-otaviodecampos.rhcloud.com/)
+[Spy demo](http://formobject-otaviodecampos.rhcloud.com/)

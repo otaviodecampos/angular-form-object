@@ -1,7 +1,7 @@
 {
     "name": "demo",
     "dependencies": [
-        "formoc"
+        "formobject"
         , "ui.ace"
     ]
 }

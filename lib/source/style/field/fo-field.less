@@ -1,10 +1,10 @@
 /* ========================================================================
-   ng-field.less
+   fo-field.less
  ========================================================================== */
 
 & > .form-group {
 
-  @import "fieldtypes/ng-field-boolean";
+  @import "fo-field-boolean";
 
   position: relative;
 
@@ -25,7 +25,7 @@
     }
   }
 
-  & > .ng-field-toolbox {
+  & > .fo-field-toolbox {
     background-color: rgba(194, 221, 248, 0.50);
     position: absolute;
     left: 15px;
@@ -36,7 +36,7 @@
     border-radius: 3px;
     display: none;
 
-    & .ng-field-toolbox-right {
+    & .fo-field-toolbox-right {
       position: absolute;
       left: 15px;
       z-index: 3;
@@ -52,7 +52,7 @@
 
   }
 
-  & .ng-field-key {
+  & .fo-field-key {
 
     & * {
       z-index: 2;
@@ -79,19 +79,19 @@
   }
 
   &:hover {
-    & > .ng-field-toolbox {
+    & > .fo-field-toolbox {
       display: block;
     }
   }
 
 }
 
-&.input > .form-group:first-child .ng-field-toolbox {
+&.input > .form-group:first-child .fo-field-toolbox {
   display: block;
   background-color: rgba(194, 221, 248, 1);
   z-index: 1;
 
-  & .ng-field-toolbox-right {
+  & .fo-field-toolbox-right {
     display: none;
   }
 }

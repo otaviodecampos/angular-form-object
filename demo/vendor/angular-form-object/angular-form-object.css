@@ -1,36 +1,36 @@
 /* ========================================================================
    ng-object.less
  ========================================================================== */
-.ng-object .ng-field {
+.ng-object .fo-field {
   /* ========================================================================
-   ng-field.less
+   fo-field.less
  ========================================================================== */
 }
-.ng-object .ng-field > .form-group {
+.ng-object .fo-field > .form-group {
   /* ========================================================================
-   ng-field-boolean.less
+   fo-field-boolean.less
  ========================================================================== */
   position: relative;
 }
-.ng-object .ng-field > .form-group.ng-field-boolean .radio-inline {
+.ng-object .fo-field > .form-group.fo-field-boolean .radio-inline {
   height: 34px;
 }
-.ng-object .ng-field > .form-group.ng-field-boolean .radio-inline:last-of-type {
+.ng-object .fo-field > .form-group.fo-field-boolean .radio-inline:last-of-type {
   margin-right: 10px;
 }
-.ng-object .ng-field > .form-group .col-sm-10 {
+.ng-object .fo-field > .form-group .col-sm-10 {
   padding-right: 25px;
 }
-.ng-object .ng-field > .form-group .dropdown-toggle {
+.ng-object .fo-field > .form-group .dropdown-toggle {
   color: #777;
   z-index: 3;
   background: #fff;
 }
-.ng-object .ng-field > .form-group .btn-group .dropdown-toggle:not(:hover) {
+.ng-object .fo-field > .form-group .btn-group .dropdown-toggle:not(:hover) {
   border: 1px solid transparent;
   background: inherit;
 }
-.ng-object .ng-field > .form-group > .ng-field-toolbox {
+.ng-object .fo-field > .form-group > .fo-field-toolbox {
   background-color: rgba(194, 221, 248, 0.5);
   position: absolute;
   left: 15px;
@@ -41,45 +41,45 @@
   border-radius: 3px;
   display: none;
 }
-.ng-object .ng-field > .form-group > .ng-field-toolbox .ng-field-toolbox-right {
+.ng-object .fo-field > .form-group > .fo-field-toolbox .fo-field-toolbox-right {
   position: absolute;
   left: 15px;
   z-index: 3;
   top: -15px;
 }
 @media (max-width: 768px) {
-  .ng-object .ng-field > .form-group > .ng-field-toolbox {
+  .ng-object .fo-field > .form-group > .fo-field-toolbox {
     right: 5px;
     left: 5px;
   }
 }
-.ng-object .ng-field > .form-group .ng-field-key * {
+.ng-object .fo-field > .form-group .fo-field-key * {
   z-index: 2;
 }
-.ng-object .ng-field > .form-group .ng-field-key .control-label {
+.ng-object .fo-field > .form-group .fo-field-key .control-label {
   overflow: hidden;
   text-overflow: ellipsis;
 }
 @media (min-width: 768px) {
-  .ng-object .ng-field > .form-group .ng-field-key .input-label {
+  .ng-object .fo-field > .form-group .fo-field-key .input-label {
     margin-left: 15px;
     margin-right: -15px;
     padding-right: 15px;
   }
 }
-.ng-object .ng-field > .form-group .ng-field-key:hover label {
+.ng-object .fo-field > .form-group .fo-field-key:hover label {
   cursor: pointer;
   color: #66afe9;
 }
-.ng-object .ng-field > .form-group:hover > .ng-field-toolbox {
+.ng-object .fo-field > .form-group:hover > .fo-field-toolbox {
   display: block;
 }
-.ng-object .ng-field.input > .form-group:first-child .ng-field-toolbox {
+.ng-object .fo-field.input > .form-group:first-child .fo-field-toolbox {
   display: block;
   background-color: #c2ddf8;
   z-index: 1;
 }
-.ng-object .ng-field.input > .form-group:first-child .ng-field-toolbox .ng-field-toolbox-right {
+.ng-object .fo-field.input > .form-group:first-child .fo-field-toolbox .fo-field-toolbox-right {
   display: none;
 }
 .ng-object .btn-circle {

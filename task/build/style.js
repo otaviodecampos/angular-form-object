@@ -3,7 +3,7 @@ var gulp = require('gulp')
 
 module.exports = function () {
 
-    var input = this.input(this.paths.source.style, ['angular-formoc.less']);
+    var input = this.input(this.paths.source.style, ['angular-form-object.less']);
 
     return gulp.src(input)
         .pipe(less())
