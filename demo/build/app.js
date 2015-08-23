@@ -3,6 +3,7 @@
 
     angular.module('demo', [
         
+        'ngAnimate', 
         'formobject', 
         'ui.ace' 
 

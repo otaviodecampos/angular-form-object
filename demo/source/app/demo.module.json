@@ -1,7 +1,8 @@
 {
     "name": "demo",
     "dependencies": [
-        "formobject"
+        "ngAnimate"
+        , "formobject"
         , "ui.ace"
     ]
 }

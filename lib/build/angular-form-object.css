@@ -152,6 +152,62 @@
 .c-radio.c-radio-nofont input[type=radio]:disabled + span:before {
   background-color: #dddddd;
 }
+/* ========================================================================
+   angular-form-object.less
+ ========================================================================== */
+.fo-field-repeat {
+  min-height: 34px;
+  box-sizing: border-box;
+  display: block;
+}
+.fo-field-repeat.ng-move,
+.fo-field-repeat.ng-enter,
+.fo-field-repeat.ng-leave {
+  transition: all 0.5s ease;
+}
+.fo-field-repeat.ng-move {
+  position: relative;
+  top: 34px;
+}
+.fo-field-repeat.ng-move.ng-move-active {
+  transition: all 0.5s ease;
+  top: 0;
+}
+.fo-field-repeat.ng-move + span {
+  position: relative;
+  top: -34px;
+}
+.fo-field-repeat.ng-move.ng-move-active + span {
+  transition: all 0.5s ease;
+  position: relative;
+  top: 0;
+}
+.fo-field-repeat.ng-enter {
+  position: relative;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  display: block;
+  min-height: 0px;
+}
+.fo-field-repeat.ng-enter.ng-enter-active {
+  transition: all 0.5s ease;
+  position: relative;
+  opacity: 1;
+  height: 49px;
+}
+.fo-field-repeat.ng-leave {
+  position: relative;
+  opacity: 1;
+}
+.fo-field-repeat.ng-leave.ng-leave-active {
+  transition: all 0.5s ease;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  display: block;
+  min-height: 0px;
+}
 .ng-object .fo-field {
   /* ========================================================================
    fo-field.less
