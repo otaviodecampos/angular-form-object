@@ -161,6 +161,9 @@
   /* ========================================================================
    fo-field-boolean.less
  ========================================================================== */
+  /* ========================================================================
+   fo-field-object.less
+ ========================================================================== */
   position: relative;
 }
 .ng-object .fo-field > .form-group.fo-field-boolean .radio-inline {
@@ -174,13 +177,19 @@
   margin-right: 10px;
   z-index: 3;
 }
+.ng-object .fo-field > .form-group.fo-field-object .btn.btn-hover .glyphicon-eye-open:before {
+  content: "\e106";
+}
+.ng-object .fo-field > .form-group.fo-field-object .btn.btn-hover.collapsed .glyphicon-eye-open:before {
+  content: "\e105";
+}
 .ng-object .fo-field > .form-group .col-sm-10 {
   padding-right: 25px;
 }
 .ng-object .fo-field > .form-group .dropdown-toggle {
   color: #777;
   z-index: 3;
-  background: #fff;
+  background: #eee;
 }
 .ng-object .fo-field > .form-group .btn-group .dropdown-toggle:not(:hover) {
   border: 1px solid transparent;
