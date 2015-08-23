@@ -1,6 +1,6 @@
-<span class="fo-field-key" ng-switch="$foField.input && fieldKeyCtrl.allow">
+<span class="fo-field-key" ng-switch="fieldKeyCtrl.allow && $foField.input">
     <div ng-keyup="fieldKeyCtrl.keyup($event)" ng-switch-when="true" class="col-sm-2 input-label">
         <input class="col-sm-2 form-control" ng-blur="fieldKeyCtrl.discard()" ng-model="$foField.key"  placeholder="string">
     </div>
-    <label ng-click="fieldKeyCtrl.input()" ng-switch-default class="col-sm-2 control-label" ng-bind="key"></label>
+    <label ng-switch-default ng-click="fieldKeyCtrl.allow && fieldKeyCtrl.input()" class="col-sm-2 control-label" ng-bind="key"></label>
 </span>
