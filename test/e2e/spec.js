@@ -1,19 +1,58 @@
 describe('Test Demo App', function() {
 
-    var example = element(by.binding('democtrl.example'));
+    var example = element(by.binding('democtrl.obj'))
+        , aceDiv = $('div.ace_content')
+        , aceInput = $('textarea.ace_text-input')
+        , keys = {
+            select_all: protractor.Key.chord(protractor.Key.CONTROL, "a"),
+            backspace: protractor.Key.BACK_SPACE
+        };
+
+    var obj = {
+        name: 'demo',
+        homepage: 'https://github.com/otaviodecampos/ng-object',
+        author: {
+            name: 'otaviodecampos',
+            email: 'otaviodecampos@hotmail.com',
+            active: true,
+            age: 25,
+            knows: [
+                'angular', 'javascript', 'java', 'css', 'html'
+            ]
+        }
+    }
 
     beforeEach(function() {
         browser.get('http://localhost:8080/');
+        setAce(obj);
     });
+
+    function setAce(obj) {
+        element(by.css('a[href="#json"]')).click();
+        browser.sleep(250);
+        browser.actions().doubleClick(aceDiv).perform();
+
+        aceInput.sendKeys(keys.select_all)
+            .sendKeys(keys.backspace)
+            .sendKeys(JSON.stringify(obj));
+
+        element(by.css('a[href="#form"]')).click();
+        browser.sleep(500);
+    }
 
     function setValue(element, value) {
         element.clear().sendKeys(value);
         element.sendKeys(protractor.Key.ENTER);
-
     }
 
-    function moveUp(field) {
+    function moveUp(field, childClass) {
+
+        if(childClass) {
+            field = field.element(by.css(childClass));
+        }
+
         var moveUpButton = field.element(by.css('[ng-click="moveUp()"]'));
+
         browser.actions().mouseMove(field).perform();
         moveUpButton.click();
     }
@@ -40,20 +79,19 @@ describe('Test Demo App', function() {
     });
 
     it('test: update boolean(radio) field', function() {
-        var id = 'author.active'
+        var id = 'author_active'
             , field = element(by.id(id))
-            , radio_false = field.element(by.id(id + '=false'));
+            , input = field.element(by.css('input'));
 
-        radio_false.click();
+        input.click();
 
         getObjectExample().then(function(obj) {
-            console.log(111);
             expect(obj.author.active).toEqual(false);
         });
     });
 
     it('test: update number field', function() {
-        var id = 'author.age'
+        var id = 'author_age'
             , field = element(by.id(id))
             , input = field.element(by.id(id + '=input'))
             , value = 26;
@@ -66,7 +104,7 @@ describe('Test Demo App', function() {
     });
 
     it('test: update field key', function() {
-        var id = 'author.email'
+        var id = 'author_email'
             , key = 'e-mail'
             , field = element(by.id(id))
             , label = field.element(by.css('.control-label'))
@@ -97,7 +135,7 @@ describe('Test Demo App', function() {
         var id = 'author'
             , field = element(by.id(id));
 
-        moveUp(field);
+    moveUp(field, '.fo-field-object');
 
         getObjectExample().then(function(obj) {
             expect(Object.keys(obj).indexOf(id)).toEqual(1);
@@ -105,10 +143,10 @@ describe('Test Demo App', function() {
     });
 
     it('test: move up array field', function() {
-        var id = 'author.knows'
+        var id = 'author_knows'
             , field = element(by.id(id));
 
-        moveUp(field);
+        moveUp(field, '.fo-field-object');
 
         getObjectExample().then(function(obj) {
             expect(Object.keys(obj.author).indexOf('knows')).toEqual(3);

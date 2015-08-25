@@ -40,6 +40,9 @@
         this.allow = !angular.isArray($scope.model);
 
         this.accept = function () {
+            console.log($scope.key);
+            console.log($foField.key);
+            console.log('---');
             if ($scope.key != $foField.key) {
                 var index = Object.keys($scope.model).indexOf($scope.key);
                 NgObject.reorder($scope.model, $foField.key, {index: index});
@@ -198,7 +201,7 @@
             if(isArray()) {
                 $scope.model.push('');
             } else {
-                $scope.model['new ' + Object.keys($scope.model).length] = '';
+                $scope.model['new ' + (Object.keys($scope.model).length + 1)] = '';
             }
 
         }
@@ -310,6 +313,10 @@
 
             angular.extend(copy, object);
 
+            if(!option.index) {
+                option.index = keys.indexOf(key);
+            }
+
             if (option.factor) {
                 option.index = this.reorderArray(keys, option.index, option.factor);
             }
@@ -332,7 +339,7 @@
 
         this.reorderArray = function(array, index, factor) {
 
-            var targetIndex = index + factor;
+            var targetIndex = parseInt(index) + parseInt(factor);
             if (targetIndex < 0) targetIndex = 0;
 
             var value = array[targetIndex];

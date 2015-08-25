@@ -5,6 +5,7 @@
   "dependencies": {},
   "devDependencies": {
     "bower": "^1.4.1",
+    "chai": "^3.2.0",
     "connect": "^3.4.0",
     "event-stream": "^3.3.1",
     "gulp": "^3.9.0",
@@ -15,6 +16,13 @@
     "gulp-ng-json": "0.0.6",
     "gulp-order": "^1.1.1",
     "gulp-rename": "^1.2.2",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.9",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "phantomjs": "^1.9.18",
     "serve-static": "^1.10.0"
   },
   "main": "demo/server.js",
