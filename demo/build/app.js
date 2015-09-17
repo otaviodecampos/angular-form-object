@@ -22,7 +22,10 @@
         var _this = this;
         _this.obj = {
             name: 'angular-form-object',
-            description: 'Form object built in angular and bootstrap.'
+            description: 'Form object built in angular and bootstrap.',
+            obj: {
+                "a": 1
+            }
         };
 
         _this.aceBlur = function(e) {

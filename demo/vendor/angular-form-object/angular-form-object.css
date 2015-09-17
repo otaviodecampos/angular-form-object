@@ -320,10 +320,44 @@
 .ng-object .btn-xs .glyphicon {
   top: 0;
 }
-.form-horizontal > .ng-object > div > .form-group.last:only-child {
+.ng-object:not(.form-horizontal) [class^="col-"] {
+  width: auto;
+  float: none;
+}
+.ng-object:not(.form-horizontal) .fo-field-toolbox {
+  right: 5px !important;
+  left: 5px !important;
+}
+.ng-object:not(.form-horizontal) .fo-field-key .input-label {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+.ng-object:not(.form-horizontal) .fo-field-toolbox .fo-field-toolbox-right {
+  right: 20px !important;
+  top: 3px !important;
+  left: auto !important;
+}
+@media (max-width: 768px) {
+  .ng-object .fo-field-toolbox .fo-field-toolbox-right {
+    right: 20px !important;
+    top: 3px !important;
+    left: auto !important;
+  }
+}
+.ng-object.form-no-editable-key .form-group .input-group {
+  width: 100%;
+}
+.ng-object.form-no-editable-key .form-group .input-group input {
+  border-radius: 3px !important;
+}
+.ng-object.form-no-editable-key .form-group .fo-field-key:hover label {
+  cursor: default;
+  color: inherit;
+}
+.form-horizontal.ng-object > div > .form-group.last:only-child {
   margin-bottom: 0px;
 }
-.form-horizontal > .ng-object > div > .form-group.last:only-child .col-md-2 {
+.form-horizontal.ng-object > div > .form-group.last:only-child .col-md-2 {
   display: none;
 }
 .row.field-object {

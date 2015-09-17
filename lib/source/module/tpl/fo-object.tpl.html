@@ -1,7 +1,7 @@
-<div class="row ng-object">
+<div class="row ng-object" ng-class="{'form-horizontal': formHorizontal, 'form-no-editable-key': formNoEditableKey}">
     <div class="col-md-12">
         <fo-field class="fo-field-repeat" ng-repeat="(key, value) in model track by key"></fo-field>
-        <div class="form-group last">
+        <div ng-if="!formNoEditableKey" class="form-group last">
             <div class="col-md-2"></div>
             <div class="col-sm-10">
                 <button class="btn btn-hover btn-default btn-xs" ng-click="add()">

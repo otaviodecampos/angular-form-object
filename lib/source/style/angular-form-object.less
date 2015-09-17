@@ -35,9 +35,63 @@
     }
   }
 
+  &:not(.form-horizontal) {
+    & [class^="col-"] {
+      width: auto;
+      float: none;
+    }
+
+    & .fo-field-toolbox {
+      right: 5px !important;
+      left: 5px !important;
+    }
+
+    & .fo-field-key .input-label {
+      margin-left: 0px !important;
+      margin-right: 0px !important;
+    }
+
+    & .fo-field-toolbox .fo-field-toolbox-right {
+      right: 20px !important;
+      top: 3px !important;
+      left: auto !important;
+    }
+  }
+
+  @media (max-width: @screen-sm) {
+    & .fo-field-toolbox .fo-field-toolbox-right {
+      right: 20px !important;
+      top: 3px !important;
+      left: auto !important;
+    }
+  }
+
+  &.form-no-editable-key {
+    .form-group {
+
+      & .input-group {
+        width: 100%;
+
+        & input {
+          border-radius: 3px !important;
+        }
+      }
+
+      & .fo-field-key {
+
+        &:hover label {
+          cursor: default;
+          color: inherit;
+        }
+
+      }
+
+    }
+  }
+
 }
 
-.form-horizontal > .ng-object > div > .form-group.last:only-child {
+.form-horizontal.ng-object > div > .form-group.last:only-child {
   & .col-md-2 {
     display: none;
   }

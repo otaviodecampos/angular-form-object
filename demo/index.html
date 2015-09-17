@@ -26,9 +26,7 @@
                 <div ui-ace="{showGutter: false, mode: 'javascript', theme:'github', onBlur: democtrl.aceBlur}" ng-model="democtrl.source"></div>
               </div>
               <div class="tab-pane fade in active" id="form">
-                <div class="form-horizontal">
-                  <ng-object model="democtrl.obj"></ng-object>
-                </div>
+                <ng-object form-horizontal="false" form-no-editable-key="true" model="democtrl.obj"></ng-object>
               </div>
               <div class="tab-pane fade" id="debug">
                 <pre ng-bind="democtrl.obj | json:true"></pre>
