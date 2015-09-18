@@ -4,5 +4,4 @@ bower_components/
 node/
 *.log
 .openshift
-lib/build
 demo/vendor
