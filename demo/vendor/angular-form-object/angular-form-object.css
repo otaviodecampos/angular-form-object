@@ -274,12 +274,14 @@
     left: 5px;
   }
 }
+.ng-object .fo-field > .form-group .fo-field-key {
+  /*& .control-label {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }*/
+}
 .ng-object .fo-field > .form-group .fo-field-key * {
   z-index: 2;
-}
-.ng-object .fo-field > .form-group .fo-field-key .control-label {
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 @media (min-width: 768px) {
   .ng-object .fo-field > .form-group .fo-field-key .input-label {
